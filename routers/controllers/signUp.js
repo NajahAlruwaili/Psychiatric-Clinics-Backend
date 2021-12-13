@@ -2,10 +2,10 @@ const bcrypt= require("bcrypt");
 const userModel= require("../../db/models/userModel")
 
 const addNewUser= async (req, res)=> {
-  let {userName, Email, pass} = req.body;
+  let {UserName, Email, Pass} = req.body;
   try {
-      pass= await bcrypt.hash(pass,10);
-      const newUser= new userModel({userName, Email, pass});
+      Pass= await bcrypt.hash(Pass,10);
+      const newUser= new userModel({UserName, Email, Pass});
 
       const res= await newUser.save();
       res.status(201).json(res);
