@@ -10,6 +10,8 @@ const signUpRoute = require("./routers/routes/signUpRoute");
 const loginRoute  = require("./routers/routes/loginRoute")
 const videoRoute = require("./routers/routes/videoRoute")
 const postRoute = require("./routers/routes/postRoute")
+const consultantRoute = require("./routers/routes/consultantRoute")
+
 
 
 
@@ -18,6 +20,8 @@ app.use(signUpRoute);
 app.use(loginRoute);
 app.use(videoRoute);
 app.use(postRoute);
+app.use(consultantRoute);
+
 
 
 

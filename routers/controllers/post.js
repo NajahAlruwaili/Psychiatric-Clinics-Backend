@@ -1,5 +1,6 @@
 const postModel = require("../../db/models/postModel");
 
+
 const getpost = async (req, res) => {
   try {
     const post = await postModel.find({});
@@ -8,11 +9,11 @@ const getpost = async (req, res) => {
     res.send(error);
   }
 };
+
 const addpost = async (req, res) => {
   const { post } = req.body;
-  const user = req.token.userId;
 
-  const newpost = new postModel({ post, user });
+  const newpost = new postModel({ post });
 
   try {
     const postModel = await newpost.save();
@@ -23,16 +24,21 @@ const addpost = async (req, res) => {
   }
 };
 
-const deletpost = async (req, res) => {
+const deletepost = async (req, res) => {
   const id = req.params.id;
-  const user = req.token.userId;
   try {
-    const del = await postModel.findOneAndDelete({ _id: id, user: user });
+    
+    const delet = await postModel.findOneAndDelete({ _id: id });
 
-    res.status(201).json([del, "delete"]);
+    res.status(201).json([delet , "delete"]);
   } catch (error) {
     res.send(error);
   }
 };
 
-module.exports = { getpost, addpost, deletpost };
+
+
+
+
+
+module.exports = { getpost, addpost, deletepost };
