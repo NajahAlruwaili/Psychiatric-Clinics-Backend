@@ -12,12 +12,10 @@ const getpost = async (req, res) => {
 
 const addpost = async (req, res) => {
   const { post } = req.body;
-
-  const newpost = new postModel({ post });
-
+  const user = req.token.userId;
+  const newpost = new postModel({ post , user});
   try {
     const postModel = await newpost.save();
-
     res.status(201).json(postModel);
   } catch (error) {
     res.send(error);
@@ -26,19 +24,13 @@ const addpost = async (req, res) => {
 
 const deletepost = async (req, res) => {
   const id = req.params.id;
+  const user = req.token.userId;
   try {
-    
-    const delet = await postModel.findOneAndDelete({ _id: id });
-
+    const delet = await postModel.findOneAndDelete({ _id: id , user:user });
     res.status(201).json([delet , "delete"]);
   } catch (error) {
     res.send(error);
   }
 };
-
-
-
-
-
 
 module.exports = { getpost, addpost, deletepost };

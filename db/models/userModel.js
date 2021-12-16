@@ -4,7 +4,7 @@ const userModel= new mongoose.Schema({
     UserName:   {type:String},
     Email:      {type:String, unique:true},
     Pass:       {type:String},
-    favorite:  [{type:mongoose.Schema.Types.ObjectId, ref: "postModel"}],
+    favorite:  [{type:mongoose.Schema.Types.ObjectId, ref: "videoModel"}],
 
 });
 

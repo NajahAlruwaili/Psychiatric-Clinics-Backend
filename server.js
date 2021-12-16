@@ -11,7 +11,7 @@ const loginRoute  = require("./routers/routes/loginRoute")
 const videoRoute = require("./routers/routes/videoRoute")
 const postRoute = require("./routers/routes/postRoute")
 const consultantRoute = require("./routers/routes/consultantRoute")
-
+const favoriteRoute = require("./routers/routes/favoriteRoute")
 
 
 
@@ -21,9 +21,7 @@ app.use(loginRoute);
 app.use(videoRoute);
 app.use(postRoute);
 app.use(consultantRoute);
-
-
-
+app.use(favoriteRoute);
 
 
 

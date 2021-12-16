@@ -10,13 +10,10 @@ const login = async (req, res) => {
     const user = await userModel.findOne({ Email: Email });
     if (user) {
       const chek = await bcrypt.compare(Pass, user.Pass);
-
       if (chek === true) {
         const payload = { userId: user._id, UserName: user.name };
         const token = jwt.sign(payload,"ABC");
-
         res.status(200).json({token});
-
       } else {
         res.status(403).json("wrong Pass!");
       }
