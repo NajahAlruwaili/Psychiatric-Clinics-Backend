@@ -1,6 +1,7 @@
 const videoModel= require("../../db/models/videoModel")
 
 
+
 const getvideo = async (req,res)=>{
     try {
       const video = await videoModel.find({});
