@@ -35,4 +35,15 @@ const delConsultant = async (req, res) => {
 };
 
 
-module.exports = { getConsultant, addConsultant, delConsultant };
+const updateAboutYou=(req,res)=>{
+
+}
+
+
+const updateImg=(req,res)=>{
+
+}
+
+
+
+module.exports = { getConsultant, addConsultant, delConsultant, updateAboutYou, updateImg };

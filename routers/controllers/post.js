@@ -33,4 +33,23 @@ const deletepost = async (req, res) => {
   }
 };
 
-module.exports = { getpost, addpost, deletepost };
+
+
+const updatePost = async (req , res) => {
+  const id = req.params.id
+  const { post} = req.body;
+  // const user = req.token.userId;
+  try {
+      let postUpdate = await postModel.findByIdAndUpdate({_id: id} , {post})
+      const posts = await postModel.find({})
+      res.status(200).json(postUpdate)
+  } catch (error) {
+      res.status(403).json(error)
+  }
+};
+
+
+
+
+
+module.exports = { getpost, addpost, deletepost, updatePost };

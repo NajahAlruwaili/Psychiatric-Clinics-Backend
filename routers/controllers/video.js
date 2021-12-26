@@ -29,11 +29,15 @@ const deletevideo = async (req, res) => {
   const user = req.token.userId;
   try {
     const delet = await videoModel.findOneAndDelete({ _id: id , user:user});
-    res.status(200).json(delet, "delete");
+    res.status(200).json([delet, "delete"]);
   } catch (error) {
     res.send(error);
   }
 };
+
+
+
+
 
 
 module.exports = { getvideo, postvideo, deletevideo };
