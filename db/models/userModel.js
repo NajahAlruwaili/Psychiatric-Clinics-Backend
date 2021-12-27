@@ -5,6 +5,8 @@ const userModel= new mongoose.Schema({
     Email:      {type:String, unique:true},
     Pass:       {type:String},
     favorite:  [{type:mongoose.Schema.Types.ObjectId, ref: "videoModel"}],
+    admin:      {type:Boolean}
+
 
 });
 

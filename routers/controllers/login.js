@@ -11,9 +11,10 @@ const login = async (req, res) => {
     if (user) {
       const chek = await bcrypt.compare(Pass, user.Pass);
       if (chek === true) {
-        const payload = { userId: user._id, UserName: user.name };
+        const payload = { userId: user._id, UserName: user.name  ,admin:user.admin};
         const token = jwt.sign(payload,"ABC");
-        res.status(200).json({token});
+       
+        res.status(200).json({token ,payload});
       } else {
         res.status(403).json("wrong Pass!");
       }

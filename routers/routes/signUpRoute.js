@@ -8,4 +8,5 @@ const {addNewUser}= require("../controllers/signUp")
 signUpRoute.post("/signUp", addNewUser)
 
 
+
 module.exports= signUpRoute ;
