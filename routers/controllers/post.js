@@ -35,33 +35,6 @@ const deletepost = async (req, res) => {
   }
 };
 
-// const deletepost = async (req, res) => {
-//   const id = req.params.id;
-//   const user = req.token.userId;
-//   try {
-//     const userAdmin = await userModel.findOne({_id:user})
-
-//     if(userAdmin.admin==true){
-//       const delet = await postModel.findOneAndDelete({ _id: id });
-//       if (delet){
-//         res.send("it is delete")
-//       }else{
-//         res.send("no delete")
-//       }
-//     } else{
-//       const delet = await postModel.findOneAndDelete({ _id: id, user: user });
-//       if (delet){
-//         res.send("it is delete")
-//       }else{
-//         res.send("noo delete")
-//       }    
-//     }
-//   } catch (error) {
-//     res.send(error , "error");
-//   }
-// };
-
-
 
 const updatePost = async (req , res) => {
   const id = req.params.id

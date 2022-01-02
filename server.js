@@ -12,6 +12,7 @@ const videoRoute = require("./routers/routes/videoRoute")
 const postRoute = require("./routers/routes/postRoute")
 const consultantRoute = require("./routers/routes/consultantRoute")
 const favoriteRoute = require("./routers/routes/favoriteRoute")
+const masegeRoute = require("./routers/routes/masegeRoute")
 
 
 
@@ -22,6 +23,7 @@ app.use(videoRoute);
 app.use(postRoute);
 app.use(consultantRoute);
 app.use(favoriteRoute);
+app.use(masegeRoute);
 
 
 
