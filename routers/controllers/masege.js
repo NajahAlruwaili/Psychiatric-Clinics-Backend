@@ -26,7 +26,17 @@ const sendMasege = async (req, res) => {
   }
 };
 
+const deletemsg = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const delet = await masegeModel.findOneAndDelete({ _id: id });
+    res.status(201).json([delet , "delete"]);
+  } catch (error) {
+    res.send(error);
+  }
+};
+
 
 
 module.exports = { getMasege,
- sendMasege };
+ sendMasege, deletemsg };

@@ -39,9 +39,10 @@ const deletepost = async (req, res) => {
 const updatePost = async (req , res) => {
   const id = req.params.id
   const { post} = req.body;
+  const user = req.token.userId;
   // const user = req.token.userId;
   try {
-      let postUpdate = await postModel.findByIdAndUpdate({_id: id} , {post})
+      let postUpdate = await postModel.findByIdAndUpdate({_id: id , user:user} , {post})
       const posts = await postModel.find({})
       res.status(200).json(posts)
   } catch (error) {
