@@ -23,17 +23,18 @@ const addpost = async (req, res) => {
 };
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////
 const deletepost = async (req, res) => {
   const id = req.params.id;
   const user = req.token.userId;
   try {
     const delet = await postModel.findOneAndDelete({ _id: id , user:user });
-    res.status(201).json([delet , "delete"]);
+    res.status(201).json(delet);
   } catch (error) {
     res.send(error);
   }
 };
+/////////////////////////////////////////////////////////////////////////////////////////
 
 
 const updatePost = async (req , res) => {
@@ -43,10 +44,11 @@ const updatePost = async (req , res) => {
   // const user = req.token.userId;
   try {
       let postUpdate = await postModel.findByIdAndUpdate({_id: id , user:user} , {post})
+      //فايند ترجع اوبجكت ولان انا مسويه سيت ستيت بالفرونت 
       const posts = await postModel.find({})
       res.status(200).json(posts)
   } catch (error) {
-      res.status(403).json(error)
+      res.send(error)
   }
 };
 

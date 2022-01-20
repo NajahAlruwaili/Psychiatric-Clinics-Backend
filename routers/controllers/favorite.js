@@ -34,8 +34,7 @@ const deletLike = async (req,res)=>{
     try {
         const removeFav = await userModel.findOneAndUpdate(
             {_id: user},
-            {$pull: {favorite:id}},
-            {new: true});
+            {$pull: {favorite:id}});
         res.status(201).json(removeFav);
     } catch (error) {
         res.send(error);

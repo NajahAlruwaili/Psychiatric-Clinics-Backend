@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config()
 const app = express();
 require("./db/db");
 app.use(express.json());
@@ -27,7 +28,8 @@ app.use(masegeRoute);
 
 
 
-const Port = 5000;
-app.listen(Port, () => {
+
+console.log(process.env.PORT)
+app.listen(process.env.PORT, () => {
   console.log("server run on 5000 port");
 });

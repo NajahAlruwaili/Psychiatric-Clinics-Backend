@@ -35,15 +35,6 @@ const delConsultant = async (req, res) => {
 };
 
 
-const updateAboutYou=(req,res)=>{
-
-}
 
 
-const updateImg=(req,res)=>{
-
-}
-
-
-
-module.exports = { getConsultant, addConsultant, delConsultant, updateAboutYou, updateImg };
+module.exports = { getConsultant, addConsultant, delConsultant};
